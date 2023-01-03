@@ -19,7 +19,10 @@ jobs:
         with:
           fetch-depth: 0
       - name: Show tags
-        run: git tag
+        run: |
+          git tag
+          echo "GITHUB_REPOSITORY $GITHUB_REPOSITORY"
+          echo "GITHUB_REPOSITORY ${{github.REPOSITORY}}"
       - name: Set up Go
         uses: actions/setup-go@v2
         with:
